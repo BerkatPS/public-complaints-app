@@ -58,7 +58,7 @@ class PengaduanController extends Controller
     public function storeaspirasi(Request $request)
     {
 
-        $data = penduduk::all();
+        $data = penduduk::all()->where('id',$request->nik)->count();
 
         // $TmpName = '';
         // if($request->file('images')){
