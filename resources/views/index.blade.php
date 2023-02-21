@@ -49,7 +49,7 @@
           <li>
             <a class="nav-link scrollto active fs-4 " href="#hero">Home</a>
           </li>
-          
+
           <li>
             <a href="/aspirasi" class="nav-link fs-4 " href="#hero">Form Aspirasi</a>
           </li>
@@ -127,8 +127,8 @@
   </div>
 
   @if (count($data['pengaduan']) > 0)
-    @foreach ($data['pengaduan'] as $p)
-    
+  @foreach ($data['pengaduan'] as $p)
+
   <div class="modal fade text-left" id="checkaspirasi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
       <div class="modal-content">
@@ -195,6 +195,26 @@
 
   <main id="main">
 
+    <section id="SearchData" class="SearchData">
+      <div class="container">
+
+        <div class="row ">
+          <div class="col-12 ">
+            <div class="card card-full  ">
+              <div class="card-header btn-get-started">
+                Cari Data Aspirasi Kamu
+              </div>
+              <div class="card-body">
+                <div class="col-12 col-md-6 col-sm-9 d-flex mx-auto gap-5">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container">
@@ -239,26 +259,7 @@
 
       </div>
     </section><!-- End About Section -->
-    <section id="SearchData" class="SearchData">
-      <div class="container">
 
-        <div class="row ">
-          <div class="col-12 ">
-            <div class="card card-full  ">
-              <div class="card-header btn-get-started">
-                Cari Data Aspirasi Kamu
-              </div>
-              <div class="card-body">
-                <div class="col-12 col-md-6 col-sm-9 d-flex mx-auto gap-5">
-                    
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
 
   </main><!-- End #main -->
 
