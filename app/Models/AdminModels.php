@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 // use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Model;
+use Illuminate\Foundation\Auth\User as Authenticable;
 
-class AdminModels extends Model
+class AdminModels extends Authenticable
 {
     use HasFactory;
     protected $table = 'admin';
@@ -16,9 +16,6 @@ class AdminModels extends Model
 
 
 
-    public function category()
-    {
-        return $this->belongsTo(category::class, 'id_kategori', 'id_kategori');
-    }
+
 
 }   

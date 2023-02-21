@@ -21,10 +21,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PengaduanController::class,'index'])->name('login');
 Route::get('/aspirasi', [PengaduanController::class,'aspirasi'])->name('aspirasi');
 Route::post('/storeaspirasi', [PengaduanController::class,'storeaspirasi']);
+
 Route::post('/feedback', [PengaduanController::class,'feedback'])->name('feedback');
-Route::post('/ceklogin', [PengaduanController::class,'ceklogin'])->name('ceklogin');
+
+Route::post('/authenticate', [PengaduanController::class,'authenticate']);
 Route::get('/logout', [PengaduanController::class,'logout']);
-Route::get('/search', [PengaduanController::class,'search']);   
 
 
 // Route From AdminController

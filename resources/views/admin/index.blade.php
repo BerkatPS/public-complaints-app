@@ -196,7 +196,6 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Id</th>
-                                                            <th>Nama</th>
                                                             <th>Kategori</th>
                                                             <th>Lokasi</th>
                                                             <th>Keterangan</th>
@@ -212,8 +211,7 @@
                                                         @if ($show->status == 'Menunggu' )
                                                         <tr>
                                                             <td>{{ $show->id_pelaporan }}</td>
-                                                            <td>{{ $show->nama  }}</td>
-                                                            <td>{{ $show->categori->kategori  }}</td>
+                                                            <td>{{ $show->kategori  }}</td>
                                                             <td>{{ $show->lokasi  }}</td>
                                                             <td>{{ $show->keterangan  }}</td>
                                                             <td><a href="{{ $show->bukti  }}">Lihat Bukti
@@ -241,7 +239,6 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Id</th>
-                                                            <th>Nama</th>
                                                             <th>Kategori</th>
                                                             <th>Lokasi</th>
                                                             <th>Keterangan</th>
@@ -257,7 +254,6 @@
                                                         @if ($show->status == 'Proses' )
                                                         <tr>
                                                             <td>{{ $show->id_pelaporan }}</td>
-                                                            <td>{{ $show->nama  }}</td>
                                                             <td>{{ $show->kategori  }}</td>
                                                             <td>{{ $show->lokasi  }}</td>
                                                             <td>{{ $show->keterangan  }}</td>
@@ -286,7 +282,6 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Id</th>
-                                                            <th>Nama</th>
                                                             <th>Kategori</th>
                                                             <th>Lokasi</th>
                                                             <th>Keterangan</th>
@@ -302,7 +297,6 @@
                                                         @if ($show->status == 'Selesai' )
                                                         <tr>
                                                             <td>{{ $show->id_pelaporan }}</td>
-                                                            <td>{{ $show->nama  }}</td>
                                                             <td>{{ $show->kategori  }}</td>
                                                             <td>{{ $show->lokasi  }}</td>
                                                             <td>{{ $show->keterangan  }}</td>

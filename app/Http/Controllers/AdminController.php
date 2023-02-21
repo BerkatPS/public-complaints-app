@@ -22,7 +22,9 @@ class AdminController extends Controller
         // $countMonth = input_aspirasi::whereMonth('created_at', $currentMonth)->count();
 
         // return $countMonth;
-        $aspirasi = input_aspirasi::with('category')->get();
+        $aspirasi = DB::table('input_aspirasi')
+            ->join('category', 'input_aspirasi.id_kategori', '=', 'category.id_kategori')
+            ->get();
 
         $data = [
             'title' => 'Dashboard Admin',

@@ -57,8 +57,7 @@
             <a href="/aspirasi" class="nav-link fs-4 " href="#hero">Form Aspirasi</a>
           </li>
           <a href="" class='sidebar-link fs-4 ' data-bs-toggle="modal" data-bs-target="#LoginForm">
-            <i class='bx bx-lock fs-4 '></i>
-            <span>Login</span>
+            <i class='bx bx-lock fs-2 '></i>
           </a>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -74,7 +73,7 @@
             <i data-feather="x"></i>
           </button>
         </div>
-        <form action="{{ route('ceklogin') }}" method="POST">
+        <form action="/authenticate" method="POST">
           @csrf
           <div class="modal-body">
             <label>Username: </label>
@@ -91,10 +90,9 @@
               <i class="bx bx-x d-block d-sm-none"></i>
               <span class="d-none d-sm-block">Close</span>
             </button>
-            <a type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit
               <i class="bx bx-check d-block d-sm-none"></i>
-              <span class="d-none d-sm-block">Login</span>
-            </a>
+            </button>
           </div>
         </form>
       </div>
@@ -109,11 +107,11 @@
             <i data-feather="x"></i>
           </button>
         </div>
-        <form action="/search" method="get">
+        <form action="" method="get">
           <div class="modal-body">
             <label>Nomor Pengaduan: </label>
             <div class="form-group">
-              <input type="text" placeholder="Masukan Nomor Pengaduan" name="q" class="form-control">
+              <input type="text" placeholder="Masukan Nomor Pengaduan" name="search" class="form-control">
             </div>
           </div>
           <div class="modal-footer">
@@ -164,27 +162,27 @@
               <div class="card-body">
                 <div class="col-md-4 d-flex mx-auto gap-5">
                   @foreach ($data['getAspiration'] as $successHistory)
-                    @if ($successHistory->feedback > 0)
-                      <div class="card w-full">
-                        <img src="{{ asset('assets/img/hero-img.png') }}" class="card-img-top">
+                  @if ($successHistory->feedback > 0)
+                  <div class="card w-full">
+                    <img src="{{ asset('assets/img/hero-img.png') }}" class="card-img-top">
 
 
-                        <div class="card-body">
-                          <div class="status ">
-                            <span class="badge text-bg-success">{{ $successHistory->status  }}</span>
-                          </div>
-                          <h5 class="card-title">Nomor Aspirasi &nbsp;&nbsp;&nbsp;<b class="fs-4">{{ $successHistory->id_pelaporan  }}</b></h5>
-                          <p class="card-text">By <span class="text-primary">{{ $successHistory->nama  }}</span> Status Telah <span class="text-primary">{{ $successHistory->status  }}</span></p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">Lokasi : {{ $successHistory->lokasi  }}</li>
-                          <li class="list-group-item">Keterangan : {{ $successHistory->keterangan  }}</li>
-                        </ul>
-                        <div class="card-body">
-                              
-                        </div>
+                    <div class="card-body">
+                      <div class="status ">
+                        <span class="badge text-bg-success">{{ $successHistory->status  }}</span>
                       </div>
-                    @endif
+                      <h5 class="card-title">Nomor Aspirasi &nbsp;&nbsp;&nbsp;<b class="fs-4">{{ $successHistory->id_pelaporan  }}</b></h5>
+                      <p class="card-text">By <span class="text-primary">{{ $successHistory->nama  }}</span> Status Telah <span class="text-primary">{{ $successHistory->status  }}</span></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Lokasi : {{ $successHistory->lokasi  }}</li>
+                      <li class="list-group-item">Keterangan : {{ $successHistory->keterangan  }}</li>
+                    </ul>
+                    <div class="card-body">
+
+                    </div>
+                  </div>
+                  @endif
                   @endforeach
                 </div>
               </div>

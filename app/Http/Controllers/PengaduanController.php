@@ -7,16 +7,20 @@ use App\Models\input_aspirasi;
 use App\Models\penduduk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\File;
 use Illuminate\Support\Facades\DB;
 
 class PengaduanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+
+        $search = $request->search;
+        $pengaduan = input_aspirasi::where('id_pelaporan','LIKE','%'.$search.'%')
+                                    ->get();
         $data = [
             'title' => 'Halaman Users',
             'getAspiration' =>  input_aspirasi::all(),
+            'pengaduan' => $pengaduan,
 
         ];
         return view('index',compact('data'));
@@ -33,18 +37,19 @@ class PengaduanController extends Controller
         ];
         return view('aspirasi',compact('data'));
     }
-    public function ceklogin(Request $request)
+    public function authenticate(Request $request)
     {
         $credentials = $request->validate([
             'username' => ['required'],
             'password' => ['required'],
         ]);
  
-        if (Auth::guard('admin')->attempt($credentials)) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
  
-            return redirect()->intended('admin');
+            return redirect()->intended('/admin');
         }
+        return back()->with('Loginerror','Gagal Login');
     }
     public function logout(Request $request)
     {
@@ -57,6 +62,9 @@ class PengaduanController extends Controller
     }
     public function storeaspirasi(Request $request)
     {
+        $this->validate($request,[
+            ''
+        ]); 
 
         $data = penduduk::all()->where('id',$request->nik)->count();
 
@@ -73,17 +81,5 @@ class PengaduanController extends Controller
         return "File uploaded successfully to $path.";
 
         // return redirect('/aspirasi');
-    }
-    public function search(Request $request)
-    {
-        $query = $request->input('q');
-        $pengaduan = input_aspirasi::where('nama','LIKE','%q%')
-                                    ->orWhere('nik','LIKE','%q%')
-                                    ->orWhere('lokasi','LIKE','%q%')
-                                    ->orWhere('keterangan','LIKE','%q%')
-                                    ->orWhere('status','LIKE','%q%')
-                                    ->get();
-
-        return view('search',compact('pengaduan'));
     }
 }
