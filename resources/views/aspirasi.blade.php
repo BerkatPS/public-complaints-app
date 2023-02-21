@@ -39,12 +39,6 @@
                                     <div class="row ">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="first-name-vertical">Nama</label>
-                                                <input type="text" id="first-name-vertical" class="form-control" name="nama" placeholder="Nama" max="16">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
                                                 <label for="first-name-vertical">Nomor Induk Kependudukan</label>
                                                 <input type="text" id="first-name-vertical" class="form-control" name="nik" placeholder="Nomor Induk Kependudukan">
                                             </div>

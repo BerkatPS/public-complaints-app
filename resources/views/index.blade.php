@@ -49,10 +49,7 @@
           <li>
             <a class="nav-link scrollto active fs-4 " href="#hero">Home</a>
           </li>
-          <a href="" class='sidebar-link fs-4' data-bs-toggle="modal" data-bs-target="#checkaspirasi">
-            <i class="bx bx-search-alt-2 fs-4"></i>
-            <span>Check Aspirasi</span>
-          </a>
+          
           <li>
             <a href="/aspirasi" class="nav-link fs-4 " href="#hero">Form Aspirasi</a>
           </li>
@@ -68,7 +65,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel33">Login Form </h4>
+          <h4 class="modal-title" id="myModalLabel33">Login Form</h4>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <i data-feather="x"></i>
           </button>
@@ -128,6 +125,56 @@
       </div>
     </div>
   </div>
+
+  @if (count($data['pengaduan']) > 0)
+    @foreach ($data['pengaduan'] as $p)
+    
+  <div class="modal fade text-left" id="checkaspirasi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel33">Lihat Aspirasi</h4>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <i data-feather="x"></i>
+          </button>
+        </div>
+        <form action="" method="get">
+          <div class="modal-body">
+            <label>Nomor Pengaduan: </label>
+            <div class="form-group">
+              <input type="text" value="{{ $p->id_pelaporan }}" class="form-control" readonly>
+            </div>
+            <label>Nik: </label>
+            <div class="form-group">
+              <input type="text" value="{{ $p->nik }}" class="form-control" readonly>
+            </div>
+            <label>Kategori: </label>
+            <div class="form-group">
+              <input type="text" value="{{ $p->category->kategori }}" class="form-control" readonly>
+            </div>
+            <label>Keterangan: </label>
+            <div class="form-group">
+              <input type="text" value="{{ $p->keterangan }}" class="form-control" readonly>
+            </div>
+            <label>Status: </label>
+            <div class="form-group">
+              <input type="text" value="{{ $p->status }}" class="form-control" readonly>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="close" class="btn btn-light-secondary" data-bs-dismiss="modal">
+              <i class="bx bx-x d-block d-sm-none"></i>
+              <span class="d-none d-sm-block">Close</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  @endforeach
+
+  @endif
+
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
 
@@ -192,8 +239,29 @@
 
       </div>
     </section><!-- End About Section -->
+    <section id="SearchData" class="SearchData">
+      <div class="container">
+
+        <div class="row ">
+          <div class="col-12 ">
+            <div class="card card-full  ">
+              <div class="card-header btn-get-started">
+                Cari Data Aspirasi Kamu
+              </div>
+              <div class="card-body">
+                <div class="col-12 col-md-6 col-sm-9 d-flex mx-auto gap-5">
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
 
   </main><!-- End #main -->
+
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
