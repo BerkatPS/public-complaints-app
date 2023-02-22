@@ -8,6 +8,7 @@ use App\Models\penduduk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class PengaduanController extends Controller
 {
@@ -15,7 +16,7 @@ class PengaduanController extends Controller
     {
 
         $search = $request->search;
-        $pengaduan = input_aspirasi::where('id_pelaporan','LIKE','%'.$search.'%')->with         ('category')->get();
+        $pengaduan = input_aspirasi::where('id_pelaporan','LIKE','%'.$search.'%')->with('category')->get();
         $data = [
             'title' => 'Halaman Users',
             'getAspiration' =>  input_aspirasi::all(),
@@ -61,24 +62,32 @@ class PengaduanController extends Controller
     }
     public function storeaspirasi(Request $request)
     {
-        $this->validate($request,[
-            ''
-        ]); 
+        // $this->validate($request,[
+        //     'id',
+        //     'nik',
+        //     'kategori',
+        //     'bukti',
+        //     'lokasi',
+        //     'keterangan'
+        // ]); 
 
-        $data = penduduk::all()->where('id',$request->nik)->count();
+        // $data = penduduk::all()->where('id',$request->nik)->count();
+        $newName = '';
 
-        // $TmpName = '';
-        // if($request->file('images')){
-        //     $extension = $request->file('images')->getClientOriginalExtension();
-        //     $TmpName = $request->name.'-'.now()->timestamp.'.'.$extension;
-        //     $request->file('images')->storeAs('images',$TmpName);
-        // }
-        // $request['bukti'] = $TmpName;
-        // $input_aspirasi = input_aspirasi::create($request->all());
-        // dd($input_aspirasi);
-        $path = $request->file('image')->store('public/images');
-        return "File uploaded successfully to $path.";
+        if($request->file('bukti')){
+            $extension = $request->file('bukti')->getClientOriginalExtension();
+            $newName = $request->nik.'-'.now()->timestamp.'.'.$extension;
+            $request->file('bukti')->storeAs('bukti', $newName);
+        }
+        $request['bukti'] = $newName;
+        $input_aspirasi = input_aspirasi::create($request->all());
 
-        // return redirect('/aspirasi');
+        return redirect('/aspirasi');
+
+       
+    }
+    public function destroy()
+    {
+        
     }
 }

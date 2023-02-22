@@ -10,7 +10,6 @@ class input_aspirasi extends Model
     use HasFactory;
     protected $table = 'input_aspirasi';
     protected $fillable = [
-        'nama',
         'nik',
         'id_kategori',
         'bukti', 
@@ -21,6 +20,6 @@ class input_aspirasi extends Model
     
     public function category()
     {
-        return $this->belongsTo(category::class, 'id_kategori', 'id_kategori');
+        return $this->belongsTo(category::class, 'id_kategori','id_kategori');
     }
 }

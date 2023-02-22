@@ -22,6 +22,7 @@
   <link href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="assets/extensions/rater-js/lib/style.css">
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
@@ -163,7 +164,9 @@
                     </div>
                   </form>
                   @if (request('search') == null)
-                    <center><p></p></center>
+                  <center>
+                    <p></p>
+                  </center>
                   @else
                   @foreach ($data['pengaduan'] as $p)
                   <div class="col-6 d-flex mx-auto">
@@ -194,6 +197,14 @@
                       </div>
                     </div>
                   </div>
+                  @if ($p->status == 'Selesai')
+                  <form action="#" class="pt-2 col-6 d-flex mx-auto">
+                    <div id="basic">
+
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-send "></i></button>
+                  </form>
+                  @endif
                   @endforeach
                   @endif
                 </div>
@@ -280,7 +291,8 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-
+  <script src="assets/extensions/rater-js/index.js?v=2"></script>
+  <script src="assets/js/pages/rater-js.js"></script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
