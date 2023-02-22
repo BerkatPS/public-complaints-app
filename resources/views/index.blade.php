@@ -125,56 +125,6 @@
       </div>
     </div>
   </div>
-
-  @if (count($data['pengaduan']) > 0)
-  @foreach ($data['pengaduan'] as $p)
-
-  <div class="modal fade text-left" id="checkaspirasi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel33">Lihat Aspirasi</h4>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <i data-feather="x"></i>
-          </button>
-        </div>
-        <form action="" method="get">
-          <div class="modal-body">
-            <label>Nomor Pengaduan: </label>
-            <div class="form-group">
-              <input type="text" value="{{ $p->id_pelaporan }}" class="form-control" readonly>
-            </div>
-            <label>Nik: </label>
-            <div class="form-group">
-              <input type="text" value="{{ $p->nik }}" class="form-control" readonly>
-            </div>
-            <label>Kategori: </label>
-            <div class="form-group">
-              <input type="text" value="{{ $p->category->kategori }}" class="form-control" readonly>
-            </div>
-            <label>Keterangan: </label>
-            <div class="form-group">
-              <input type="text" value="{{ $p->keterangan }}" class="form-control" readonly>
-            </div>
-            <label>Status: </label>
-            <div class="form-group">
-              <input type="text" value="{{ $p->status }}" class="form-control" readonly>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="close" class="btn btn-light-secondary" data-bs-dismiss="modal">
-              <i class="bx bx-x d-block d-sm-none"></i>
-              <span class="d-none d-sm-block">Close</span>
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  @endforeach
-
-  @endif
-
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
 
@@ -204,9 +154,48 @@
               <div class="card-header btn-get-started">
                 Cari Data Aspirasi Kamu
               </div>
-              <div class="card-body">
-                <div class="col-12 col-md-6 col-sm-9 d-flex mx-auto gap-5">
-
+              <div class="card-body ">
+                <div class="">
+                  <form class="col-6 d-flex mx-auto" method="get" action="">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="Cari Data Berdasarkan Id Pelaporan" name="search" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                      <span class="input-group-text btn btn-primary" id="basic-addon2"><i class="bi bi-search"></i></span>
+                    </div>
+                  </form>
+                  @if (request('search') == null)
+                    <center><p></p></center>
+                  @else
+                  @foreach ($data['pengaduan'] as $p)
+                  <div class="col-6 d-flex mx-auto">
+                    <div class="search-body">
+                      <label>Id Pelaporan: </label>
+                      <div class="form-group">
+                        <input type="text" value="{{ $p->id_pelaporan }}" class="form-control">
+                      </div>
+                      <label>Nik: </label>
+                      <div class="form-group">
+                        <input type="text" value="{{ $p->nik }}" class="form-control">
+                      </div>
+                      <label>Kategori: </label>
+                      <div class="form-group">
+                        <input type="text" value="{{ $p->category->kategori }}" class="form-control">
+                      </div>
+                      <label>Bukti : </label>
+                      <div class="form-group">
+                        <input type="text" value="{{ $p->bukti }}" class="form-control">
+                      </div>
+                      <label>Lokasi: </label>
+                      <div class="form-group">
+                        <input type="text" value="{{ $p->lokasi }}" class="form-control">
+                      </div>
+                      <label>Keterangan: </label>
+                      <div class="form-group">
+                        <input type="text" value="{{ $p->keterangan }}" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  @endforeach
+                  @endif
                 </div>
               </div>
             </div>
