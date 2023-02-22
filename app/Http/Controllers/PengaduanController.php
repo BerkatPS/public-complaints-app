@@ -73,7 +73,8 @@ class PengaduanController extends Controller
 
         // $data = penduduk::all()->where('id',$request->nik)->count();
         $newName = '';
-
+        
+        
         if($request->file('bukti')){
             $extension = $request->file('bukti')->getClientOriginalExtension();
             $newName = $request->nik.'-'.now()->timestamp.'.'.$extension;
@@ -88,6 +89,6 @@ class PengaduanController extends Controller
     }
     public function destroy()
     {
-        
+
     }
 }

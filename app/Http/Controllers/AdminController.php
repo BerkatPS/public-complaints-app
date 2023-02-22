@@ -36,5 +36,12 @@ class AdminController extends Controller
         ];
         return view('admin.index', compact('data'));
     }
-    
+
+    public function action(Request $request)
+    {
+        input_aspirasi::where('id_pelaporan',$request->id_pelaporan)
+        ->update(['status' => $request->status]);
+        
+    }
+
 }
