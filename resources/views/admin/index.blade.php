@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../assets/css/pages/datatables.css">
     <link rel="stylesheet" href="../assets/css/shared/iconly.css">
     <link rel="stylesheet" href="assets/extensions/sweetalert2/sweetalert2.min.css">
-    
+
 </head>
 
 <body>
@@ -224,7 +224,12 @@
                                                                     @endif
                                                                 </span>
                                                             </td>
-                                                            <td><a id="confirmPending" class="btn btn-info">Konfirmasi</a></td>
+                                                            <td class="d-flex justify-content-center align-items-center"><a id="confirmPending" class="btn btn-info "><i class="bi bi-check-circle"></i></a></td>
+                                                            <form action="/admin/delete" method="post">
+                                                                @csrf
+                                                                <input type="hidden" name="id_pelaporan" value="{{ $show->id_pelaporan }}">
+                                                                <td><button type="submit" id="confirmPending" class="btn btn-danger"><i class="bi bi-trash3"></i></a></button>
+                                                            </form>
                                                         </tr>
                                                         @endif
                                                         @endif

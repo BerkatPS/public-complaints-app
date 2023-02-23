@@ -200,7 +200,7 @@
                   @if ($p->status == 'Selesai')
                   <form action="#" class="pt-2 col-6 d-flex mx-auto">
                     <div id="basic">
-
+  
                     </div>
                     <button type="submit" class="btn btn-primary"><i class="bi bi-send "></i></button>
                   </form>
@@ -227,7 +227,7 @@
                 History Aspirasi
               </div>
               <div class="card-body">
-                <div class="col-md-4 d-flex mx-auto gap-5">
+                <div class="col-12 col-md-6 cold-sm-6 d-flex mx-auto gap-5">
                   @foreach ($data['getAspiration'] as $successHistory)
                   @if ($successHistory->feedback > 0)
                   <div class="card w-full">

@@ -237,7 +237,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($data['getAspiration'] as $show)
-                                        @if ($show->feedback == 0)
+                                        @if ($show->feedback > 0)
                                         @if ($show->status == 'Selesai' )
                                         <tr>
                                             <td>{{ $show->id_pelaporan }}</td>
@@ -255,14 +255,7 @@
                                                 </span>
                                             </td>
                                             <td>
-
-                                                <form action="#">
-                                                    <div id="basic">
-
-                                                    </div>
-
-                                                </form>
-                                                <button type="submit" class="btn btn-primary"><i class='bx bx-send'></i></button>
+                                                {{ $show->feedback   }}
                                             </td>
                                         </tr>
                                         @endif

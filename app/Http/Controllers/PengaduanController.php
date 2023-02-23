@@ -16,7 +16,7 @@ class PengaduanController extends Controller
     {
 
         $search = $request->search;
-        $pengaduan = input_aspirasi::where('id_pelaporan','LIKE','%'.$search.'%')->with('category')->get();
+        $pengaduan = input_aspirasi::where('id_pelaporan','=',$search)->with('category')->get();
         $data = [
             'title' => 'Halaman Users',
             'getAspiration' =>  input_aspirasi::all(),

@@ -41,7 +41,14 @@ class AdminController extends Controller
     {
         input_aspirasi::where('id_pelaporan',$request->id_pelaporan)
         ->update(['status' => $request->status]);
-        
+
+    }
+
+    public function delete(Request $request)
+    {
+        input_aspirasi::where('id_pelaporan', $request->id_pelaporan)->delete();
+
+        return redirect('/admin');
     }
 
 }

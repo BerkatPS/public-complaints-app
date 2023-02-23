@@ -30,7 +30,7 @@ Route::get('/logout', [PengaduanController::class,'logout']);
 
 // Route From AdminController
 Route::get('/admin', [AdminController::class , 'index']);
-
+Route::post('/admin/delete', [AdminController::class,'delete'])->name('delete');
 
 
 
